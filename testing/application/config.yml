@@ -1,0 +1,13 @@
+framework:
+    router:   { resource: "%kernel.root_dir%/routing.yml" }
+    profiler: { only_exceptions: false }
+    test: ~
+    session:
+      storage_id: session.storage.filesystem
+
+web_profiler:
+    toolbar: true
+    intercept_redirects: false
+
+parameters:
+  kernel.secret: abcd
