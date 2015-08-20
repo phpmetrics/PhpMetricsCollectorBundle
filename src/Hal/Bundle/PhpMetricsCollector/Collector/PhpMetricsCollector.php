@@ -19,7 +19,7 @@ class PhpMetricsCollector extends DataCollector
         // filter loaded files
         $files = get_included_files();
         $files = array_filter($files, function ($v) {
-            $excludes = array('vendor', 'pear', '\\.phar', 'bootstrap\.php', 'Test', 'AppKernel.php', 'autoload.php', 'cache/', 'app.php', 'app_dev.php', 'Form', 'PhpMetrics');
+            $excludes = array('vendor', 'pear', '\\.phar', 'bootstrap\.php', 'Test', '/app', 'AppKernel.php', 'autoload.php', 'cache/', 'app.php', 'app_dev.php', 'Form', 'PhpMetrics', 'classes.php');
             return !preg_match('!' . implode('|', $excludes) . '!', $v);
         });
 
@@ -83,9 +83,9 @@ class PhpMetricsCollector extends DataCollector
             $average['maintainability'] = array_sum($all['maintainability']) / sizeof($all['maintainability']);
             $average['commentWeight'] = array_sum($all['commentWeight']) / sizeof($all['commentWeight']);
             $average['complexity'] = array_sum($all['complexity']) / sizeof($all['complexity']);
-            $average['loc'] = array_sum($all['loc']) / sizeof($all['loc']);
-            $average['lloc'] = array_sum($all['lloc']) / sizeof($all['lloc']);
-            $average['cloc'] = array_sum($all['cloc']) / sizeof($all['cloc']);
+            $average['loc'] = array_sum($all['loc']);
+            $average['lloc'] = array_sum($all['lloc']);
+            $average['cloc'] = array_sum($all['cloc']);
             $average['bugs'] = array_sum($all['bugs']) / sizeof($all['bugs']);
             $average['difficulty'] = array_sum($all['difficulty']) / sizeof($all['difficulty']);
             $average['intelligentContent'] = array_sum($all['intelligentContent']) / sizeof($all['intelligentContent']);
