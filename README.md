@@ -1,6 +1,6 @@
 # PhpMetricsCollectorBundle
 
-Integrates [PhpMetrics](http://www.phpmetrics.org) in Symfony 5 debug toolbar.
+Integrates [PhpMetrics](http://www.phpmetrics.org) in Symfony debug toolbar.
 
 ![License](https://poser.pugx.org/halleck45/phpmetrics/license.svg)
 [![Build Status](https://secure.travis-ci.org/Halleck45/PhpMetricsCollectorBundle.svg)](http://travis-ci.org/Halleck45/PhpMetricsCollectorBundle) 
@@ -19,7 +19,13 @@ Integrates [PhpMetrics](http://www.phpmetrics.org) in Symfony 5 debug toolbar.
 
 Install it via composer
 
-    "composer require halleck45/phpmetrics-collector-bundle --dev"
+**Symfony 4 & 5:**
+
+    composer require --dev phpmetrics/symfony-bundle
+
+**Symfony 2 & 3:**
+
+    composer require --dev halleck45/phpmetrics-collector-bundle:0.0.2
     
 # Contribute
 
