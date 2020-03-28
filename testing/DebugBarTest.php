@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -10,7 +13,7 @@ class DebugBarTest extends WebTestCase
         $client = static::createClient();
         $client->followRedirects(true);
         $client->enableProfiler();
-        $crawler = $client->request('GET', '/route1');
+        $client->request('GET', '/route1');
         $collector = $client->getProfile()->getCollector('phpmetrics_collector');
         $this->assertInstanceOf('Hal\Bundle\PhpMetricsCollector\Collector\PhpMetricsCollector', $collector);
     }
@@ -20,12 +23,12 @@ class DebugBarTest extends WebTestCase
         $client = static::createClient();
         $client->followRedirects(true);
         $client->enableProfiler();
-        $crawler = $client->request('GET', '/route1');
+        $client->request('GET', '/route1');
         $collector = $client->getProfile()->getCollector('phpmetrics_collector');
         $this->assertGreaterThan(0, $collector->getMaintainabilityIndex());
-        $this->assertInternalType("float", $collector->getMaintainabilityIndex());
-        $this->assertInternalType("float", $collector->getCommentWeight());
-        $this->assertInternalType("float", $collector->getDifficulty());
-        $this->assertInternalType("float", $collector->getBugs());
+        $this->assertIsFloat($collector->getMaintainabilityIndex());
+        $this->assertIsFloat($collector->getCommentWeight());
+        $this->assertIsFloat($collector->getDifficulty());
+        $this->assertIsFloat($collector->getBugs());
     }
 }

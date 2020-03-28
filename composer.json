@@ -1,29 +1,53 @@
 {
     "name": "halleck45/phpmetrics-collector-bundle",
-    "description": "Display PhpMetrics informations in Symfony2 Debug bar",
-    "keywords": ["symfony2", "phpmetrics"],
+    "description": "Display PhpMetrics informations in Symfony 5 Debug bar",
+    "keywords": ["symfony4", "symfony5", "phpmetrics"],
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
         {
             "name": "Jean-François Lépine",
             "homepage": "http://blog.lepine.pro"
+        },
+        {
+            "name": "Eric COURTIAL"
         }
     ],
     "require": {
-        "halleck45/phpmetrics": ">=1.2.0"
+        "phpmetrics/phpmetrics": "^2.5",
+        "symfony/dependency-injection": "^4.0|^5.0",
+        "symfony/http-kernel": "^4.3|^5.0",
+        "symfony/yaml": "^4|^5.0"
     },
     "require-dev": {
-        "symfony/framework-bundle": ">=2.2,<3",
-        "symfony/finder": ">=2.2,<3",
-        "symfony/web-profiler-bundle": ">=2.2,<3",
-        "symfony/class-loader": ">=2.2,<3",
-        "symfony/twig-bundle": ">=2.2,<3",
-        "symfony/browser-kit": ">=2.2,<3"
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.12.14",
+        "phpstan/phpstan-deprecation-rules": "^0.12",
+        "phpstan/phpstan-phpunit": "^0.12",
+        "phpstan/phpstan-strict-rules": "^0.12",
+        "squizlabs/php_codesniffer": "^3.5",
+        "symfony/browser-kit": "^3.0|^4.0",
+        "symfony/class-loader": "^3.0",
+        "symfony/finder": "^3.0|^4.0",
+        "symfony/form": "^3.0|^4.0",
+        "symfony/framework-bundle": "^3.0|^5.0",
+        "symfony/templating": "^3.0|^4.0",
+        "symfony/twig-bundle": "^3.0|^4.0",
+        "symfony/web-profiler-bundle": "^3.0|^4.0",
+        "phpunit/phpunit": "^7"
     },
     "autoload": {
-        "psr-0": {
-            "Hal\\Bundle\\PhpMetricsCollector\\": [ "src/"]
+        "psr-4": {
+            "Hal\\Bundle\\PhpMetricsCollector\\": "src/Hal/Bundle/PhpMetricsCollector/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "My\\": "testing/application/src/My/"
+        },
+        "classmap": [
+            "testing/application/AppKernel.php"
+        ]
     }
 }

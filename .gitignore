@@ -4,3 +4,5 @@ vendor
 composer.lock
 testing/application/cache
 testing/application/logs
+var
+.php_cs.cache
